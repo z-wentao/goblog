@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/yuin/goldmark"
+	highlighting "github.com/yuin/goldmark-highlighting/v2"
 )
 
 func main() {
@@ -40,6 +41,13 @@ func (fr FileReader) Read(slug string) (string, error) {
 }
 
 func PostHandler(sl SlugReader) http.HandlerFunc {
+	markRender := goldmark.New(
+		goldmark.WithExtensions(
+			highlighting.NewHighlighting(
+				highlighting.WithStyle("dracula"),
+			),
+		),
+	)
 	return func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 		postMarkdown, err := sl.Read(slug)
@@ -48,7 +56,7 @@ func PostHandler(sl SlugReader) http.HandlerFunc {
 			return
 		}
 		var buf bytes.Buffer
-		err = goldmark.Convert([]byte(postMarkdown), &buf)
+		err = markRender.Convert([]byte(postMarkdown), &buf)
 		if err != nil {
 			panic(err)
 		}
