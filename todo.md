@@ -1,13 +1,13 @@
 # DONE:
-A complete beginner's guide to deploying web applications
-rebuild sioyek
-Learning through fast feedback
-FAQ: should I stick to one course or jump around? this is the question I want to ask too, should I stick to one project instead of creating as more projects as I want, should I stick to the PhotoShare project? (interest to me and fit my goal)
+- A complete beginner's guide to deploying web applications
+- rebuild sioyek
+- Learning through fast feedback
+- FAQ: should I stick to one course or jump around? this is the question I want to ask too, should I stick to one project instead of creating as more projects as I want, should I stick to the PhotoShare project? (interest to me and fit my goal)
 
 # List
 ## Programming Basics
-finish Chapter 9 of web development with Go
-Write a SQLite Server with Go, create a list, rank, iteratesystem 
+- finish Chapter 9 of web development with Go
+- Write a SQLite Server with Go, create a list, rank, iteratesystem 
 have a basic idea about what SQLite can do and the difference with other relational Databases
 
 learn to write test for Go
