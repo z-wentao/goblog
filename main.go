@@ -9,6 +9,7 @@ import (
 
 	"github.com/yuin/goldmark"
 	highlighting "github.com/yuin/goldmark-highlighting/v2"
+	"github.com/yuin/goldmark/renderer/html"
 )
 
 func main() {
@@ -46,6 +47,9 @@ func PostHandler(sl SlugReader) http.HandlerFunc {
 			highlighting.NewHighlighting(
 				highlighting.WithStyle("dracula"),
 			),
+		),
+		goldmark.WithRendererOptions(
+			html.WithHardWraps(),
 		),
 	)
 	return func(w http.ResponseWriter, r *http.Request) {
